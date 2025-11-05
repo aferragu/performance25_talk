@@ -487,9 +487,9 @@
 % 	\alert{Question:} can we do more using this machinery of measure-valued processes?
 % \end{frame}
 
-\section{Partial service queues and Earliest-Deadline-First}
+\section{Partial service queues}
 
-\begin{frame}{Partial service queues}{Setting}
+\begin{frame}{Setting}
 
 	Consider an $M/G/C$ system where:
 	\begin{columns}
@@ -715,49 +715,49 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Fluid model dynamics}{Weak formulation}
+% \begin{frame}{Fluid model dynamics}{Weak formulation}
 
-	We will describe these dynamics in terms of the projections 
-\begin{equation*}
-	\brackets{\phi}{\mu} := \iint \phi(\sigma,\tau) \, \mu(d\sigma,d\tau)
-\end{equation*}
-of the state measure with  respect to a test function $\phi:\R^2_{++}\to\R$, with continuous derivatives and compact support, i.e. $\phi \in \mathcal{C}^1_c(\R^2_{++})$.  
+% 	We will describe these dynamics in terms of the projections 
+% \begin{equation*}
+% 	\brackets{\phi}{\mu} := \iint \phi(\sigma,\tau) \, \mu(d\sigma,d\tau)
+% \end{equation*}
+% of the state measure with  respect to a test function $\phi:\R^2_{++}\to\R$, with continuous derivatives and compact support, i.e. $\phi \in \mathcal{C}^1_c(\R^2_{++})$.  
 
-\vfill
+% \vfill
 
-We have:
-	\begin{equation*}
-	\brackets{\phi}{\mu_{t+dt}} = \iint \phi(\sigma-r_{\mu_t}dt,\tau-dt) \, \mu_{t}(d\sigma,d\tau) + \lambda dt \iint \phi(\sigma,\tau)g(\sigma,\tau)\, d\sigma d\tau + o(dt).
-\end{equation*}
+% We have:
+% 	\begin{equation*}
+% 	\brackets{\phi}{\mu_{t+dt}} = \iint \phi(\sigma-r_{\mu_t}dt,\tau-dt) \, \mu_{t}(d\sigma,d\tau) + \lambda dt \iint \phi(\sigma,\tau)g(\sigma,\tau)\, d\sigma d\tau + o(dt).
+% \end{equation*}
 
-\end{frame}
+% \end{frame}
 
-\begin{frame}{Fluid model dynamics}{Weak formulation}
+% \begin{frame}{Fluid model dynamics}{Weak formulation}
 
-	\begin{align*}
-	\frac{\partial}{\partial t}\brackets{\phi}{\mu_{t}} =& \lim_{dt\to 0} \iint \frac{1}{dt} \left[\phi(\sigma-r_{\mu_t}dt,\tau-dt) - \phi(\sigma,\tau)\right] \mu_{t}(d\sigma,d\tau) \\ 
-	&+ \lambda \iint \phi(\sigma,\tau)g(\sigma,\tau) d\sigma d\tau\\
-=& - \iint \left[r_{\mu_t}(\sigma,\tau) \phi_\sigma (\sigma,\tau) + \phi_\tau(\sigma,\tau)\right]\mu_t(d\sigma,d\tau) + \lambda \iint \phi(\sigma,\tau)g(\sigma,\tau) d\sigma d\tau,
-\end{align*}
+% 	\begin{align*}
+% 	\frac{\partial}{\partial t}\brackets{\phi}{\mu_{t}} =& \lim_{dt\to 0} \iint \frac{1}{dt} \left[\phi(\sigma-r_{\mu_t}dt,\tau-dt) - \phi(\sigma,\tau)\right] \mu_{t}(d\sigma,d\tau) \\ 
+% 	&+ \lambda \iint \phi(\sigma,\tau)g(\sigma,\tau) d\sigma d\tau\\
+% =& - \iint \left[r_{\mu_t}(\sigma,\tau) \phi_\sigma (\sigma,\tau) + \phi_\tau(\sigma,\tau)\right]\mu_t(d\sigma,d\tau) + \lambda \iint \phi(\sigma,\tau)g(\sigma,\tau) d\sigma d\tau,
+% \end{align*}
 
-\end{frame}
+% \end{frame}
 
-\begin{frame}{Fluid model dynamics}{Weak formulation}
+% \begin{frame}{Fluid model dynamics}{Weak formulation}
 
-	Equivalently:
+% 	Equivalently:
 
-\begin{align*}
-	\brackets{\phi}{\mu_t} = \brackets{\phi}{\mu_0} + \int_0^t &\left[- \iint \left[r_{\mu_s}(\sigma,\tau) \phi_\sigma (\sigma,\tau) + \phi_\tau(\sigma,\tau)\right]\mu_t(d\sigma,d\tau)\right.\\
-	& \left. + \lambda \iint \phi(\sigma,\tau)g(\sigma,\tau)\, d\sigma d\tau \right]ds,
-\end{align*}
-for any $\phi \in \mathcal{C}^1_c(\R^2_{++})$.
+% \begin{align*}
+% 	\brackets{\phi}{\mu_t} = \brackets{\phi}{\mu_0} + \int_0^t &\left[- \iint \left[r_{\mu_s}(\sigma,\tau) \phi_\sigma (\sigma,\tau) + \phi_\tau(\sigma,\tau)\right]\mu_t(d\sigma,d\tau)\right.\\
+% 	& \left. + \lambda \iint \phi(\sigma,\tau)g(\sigma,\tau)\, d\sigma d\tau \right]ds,
+% \end{align*}
+% for any $\phi \in \mathcal{C}^1_c(\R^2_{++})$.
 
-\pause
-\vfill
+% \pause
+% \vfill
 
-Looks daunting, but is not that bad...
+% Looks daunting, but is not that bad...
 
-\end{frame}
+% \end{frame}
 
 \begin{frame}{Fluid model dynamics}{Transport PDE}
 
@@ -1142,24 +1142,24 @@ Looks daunting, but is not that bad...
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Departure rate}
+% \begin{frame}{Departure rate}
 
-	Now we have to compute the departure rate $\eta_{\nu}(x,y)$:
-	\begin{equation*}
-		\eta_\nu(x,y) := \lim_{dt\to 0} \frac{1}{dt} P\left(\left\{S\in\left(x,x+r_{\tilde\Phi}dt\right)\right\}\cup \left\{T\in\left(y,y+dt\right)\right\}\mid S>x,T>y\right)
-	\end{equation*}
+% 	Now we have to compute the departure rate $\eta_{\nu}(x,y)$:
+% 	\begin{equation*}
+% 		\eta_\nu(x,y) := \lim_{dt\to 0} \frac{1}{dt} P\left(\left\{S\in\left(x,x+r_{\tilde\Phi}dt\right)\right\}\cup \left\{T\in\left(y,y+dt\right)\right\}\mid S>x,T>y\right)
+% 	\end{equation*}
 
-	By the chain rule and some computations:
-	\begin{gather*}
-		\eta_{\nu}(x,y) =\frac{1}{\bar{G}(x,y)}\left[-\frac{\partial}{\partial x} \bar{G}(x,y) r_{\tilde\Phi}(x,y) - \frac{\partial}{\partial y} \bar{G}(x,y)\right]
-	\end{gather*}
-	\pause
-	Therefore:
-	\begin{equation*}
-	\eta_{\nu}(x,y) = h^x(x,y)r_{\nu}(x,y)+h^y(x,y) = \mathbf{r}_{\nu}(x,y) \cdot \mathbf{h}(x,y).
-	\end{equation*}
+% 	By the chain rule and some computations:
+% 	\begin{gather*}
+% 		\eta_{\nu}(x,y) =\frac{1}{\bar{G}(x,y)}\left[-\frac{\partial}{\partial x} \bar{G}(x,y) r_{\tilde\Phi}(x,y) - \frac{\partial}{\partial y} \bar{G}(x,y)\right]
+% 	\end{gather*}
+% 	\pause
+% 	Therefore:
+% 	\begin{equation*}
+% 	\eta_{\nu}(x,y) = h^x(x,y)r_{\nu}(x,y)+h^y(x,y) = \mathbf{r}_{\nu}(x,y) \cdot \mathbf{h}(x,y).
+% 	\end{equation*}
 
-\end{frame}
+% \end{frame}
 
 \begin{frame}{Attained service transport equation}
 
@@ -1298,8 +1298,8 @@ Looks daunting, but is not that bad...
     \end{pmatrix}\right).
 \end{equation*}
     \item In particular, the random variables $U$ and $V$ are correlated with normal distributions, and therefore $S$ and $T$ are correlated with log-normal distributions.
-	\item In this case, $E[\min\{S,T\}] \approx 1.37$ can only be numerically estimated. 
-	\item We choose $\lambda = 200$ and $C=100$, then $z^* \approx 0.593$.
+	\item In this case, $E[\min\{S,T\}] \approx 1.36$ can only be numerically estimated. 
+	\item We choose $\lambda = 120$ and $C=100$, then $\rho\approx 160$ and $z^* \approx 1.322$.
 	\end{itemize}
 	
 
@@ -1308,23 +1308,23 @@ Looks daunting, but is not that bad...
 \begin{frame}{State space snapshots}
     
 	\begin{center}
-	\input{figuras/lognormal_edf_statespace.tex}
-    \input{figuras/lognormal_las_statespace.tex}
-    \input{figuras/lognormal_lcfs_statespace.tex}
+	\only<1>{\input{figuras/lognormal_edf_statespace.tex}}
+    \only<2>{\input{figuras/lognormal_las_statespace.tex}}
+    \only<3>{\input{figuras/lognormal_lcfs_statespace.tex}}
     \end{center}
 
 	\vfill
 	Blue dots are in service, red dots are not in service. 
 \end{frame}
 
-\begin{frame}{Stochastic threshold evolution}
-	\begin{center}
-	\input{figuras/lognormal_edf_threshold.tex}
-    \input{figuras/lognormal_las_threshold.tex}
-    \input{figuras/lognormal_lcfs_threshold.tex}    
-	\end{center}
+% \begin{frame}{Stochastic threshold evolution}
+% 	\begin{center}
+% 	\input{figuras/lognormal_edf_threshold.tex}
+%     \input{figuras/lognormal_las_threshold.tex}
+%     \input{figuras/lognormal_lcfs_threshold.tex}    
+% 	\end{center}
 
-\end{frame}
+% \end{frame}
 
 \begin{frame}{Attained work empirical CDF}
 
@@ -1337,16 +1337,16 @@ Looks daunting, but is not that bad...
 	Even in the pre-limit system, performance is similar!
 \end{frame}
 
-\begin{frame}{Comparison with FIFO}
+% \begin{frame}{Comparison with FIFO}
 
-	\begin{center}
-	\input{figuras/lognormal_fifo_bad.tex}
-	\end{center}
+% 	\begin{center}
+% 	\input{figuras/lognormal_fifo_bad.tex}
+% 	\end{center}
 
-	\vfill
+% 	\vfill
 
-	Almost 80\% of the jobs leave without service.
-\end{frame}
+% 	Almost 80\% of the jobs leave without service.
+% \end{frame}
 
 \section{Final remarks}
 
@@ -1364,7 +1364,7 @@ Looks daunting, but is not that bad...
 	
 	\begin{myitem}
 		\item Analyze further policies using these tools (FCFS is easy for instance).
-		\item Establish process-level convergence to the fluid models (long work...help needed...)
+		\item Establish process-level convergence to the fluid models (almost done!)
 		\item Devise new policies and/or analyze different settings:
 		
 		\begin{itemize}
